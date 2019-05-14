@@ -79,19 +79,38 @@ SELECT CHAR_LENGRH('HELLO'); --5
 SELECT UPPER('hello');
 
 --DISTINCT give us unique data without dublicates
-SELECT DISTINCT autor_lname FROM books;
+SELECT DISTINCT author_lname FROM books;
 
 --ORDER BY sortings results
 --DESC or ASC
 
-SELECT autor_lname FROM books ORDER BY author_lname DESC;
+SELECT author_lname FROM books ORDER BY author_lname DESC;
 
-SELECT title, autor_lname, autor_fname, FROM books ORDER BY 2; --autor_lname
+SELECT title, author_lname, author_fname, FROM books ORDER BY 2; --autor_lname
 
 --LIMIT
 SELECT title FROM books LIMIT 3;
 
 --LIKE nice for searching
-SELECT autor_fname FROM books WHERE author_fname LIKE '%da%';
+SELECT author_fname FROM books WHERE author_fname LIKE '%da%';
 -- '____' wildcard  four characters in a row
---escape character
+
+--Aggregate Functions
+
+--count rows
+SELECT COUNT(*) FROM books;
+--uniqe count
+SELECT COUNT(DISTINCT author_fname, author_lname ) FROM books;
+
+--GROUP BY summarizes or aggregates identical data into single rows
+SELECT author_lname, COUNT(*) FROM books GROUP BY author_lname;
+
+--Min and Max
+SELECT Min(released_year) FROM books;
+SELECT MAX(pages) FROM books;
+
+--SUM
+SELECT SUM(pages) FROM books;
+
+--AVG
+SELECT AVG(pages) FROM books;
