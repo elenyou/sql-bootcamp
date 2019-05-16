@@ -114,3 +114,31 @@ SELECT SUM(pages) FROM books;
 
 --AVG
 SELECT AVG(pages) FROM books;
+
+-- DATA types
+
+--CHAR has fixed length
+--INT whole numbers
+-- DECIMAL
+-- DATE "YYYY-MM-DD"
+--TIME "HH:MM:SS"
+-- DATETIME
+
+
+--CURTIME(), CURDATE(), NOW() - current
+--DAY(),DAYNAME(),DAYOFWEEK(),DAYOFYEAR()
+
+--DATEMATH: DATEDIFF() and DATE_ADD()
+
+--TIMESTAMPS
+--example
+CREATE TABLE comments (
+  content VARCHAR(100),
+  created_at TIMESTAMP DEFAULT NOW()
+);
+CREATE TABLE comments2 (
+  content VARCHAR(100),
+  created_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+);
+
+

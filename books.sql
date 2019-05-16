@@ -103,5 +103,21 @@ SELECT
 FROM books
 WHERE pages = (SELECT MAX(pages) AS 'longest book' FROM books);
 
---
+--BETWEEN
+SELECT title, released_year
+FROM books
+WHERE released_year
+	BETWEEN 2004 AND 2015;
 
+--IN
+SELECT title, author_lname
+FROM books
+WHERE author_lname IN ('Carver', 'Lahiri', 'Smith');
+
+--CASE STATEMENT
+SELECT title, released_year
+	CASE
+		WHEN released_year >= 2000 THEN 'Modern Lit'
+		ELSE '20th Century Lit'
+	END AS GENRE
+FROM books;
